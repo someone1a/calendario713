@@ -1,4 +1,13 @@
-<?php function generateCalendar($month, $year)
+<?php
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "calendario713";
+$conn = new mysqli($servername, $username, $password, $dbname);
+if ($conn->connect_error) {
+    die("La conexión falló: " . $conn->connect_error);
+}
+function generateCalendar($month, $year)
 {
     $month = max(1, min(12, $month));
     $year = max(1, $year);
@@ -49,5 +58,3 @@
 
 $year = isset($_GET['year']) ? $_GET['year'] : date('Y');
 $month = isset($_GET['month']) ? $_GET['month'] : date('n');
-generateCalendar($month, $year);
-?>

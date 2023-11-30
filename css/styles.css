@@ -3,7 +3,57 @@ body {
     margin: 0;
     padding: 0;
 }
+.today{
+    background-color: green;
+}
+.today:hover{
+    background-color: greenyellow;
+}
+.calendar-navigation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
 
+.calendar-navigation a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: #000;
+}
+
+.calendar-navigation a:hover {
+    color: #ff0000;
+}
+
+.txcenter {
+    text-align: center;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border: solid black 1px;
+}
+
+th {
+    background-color: #f2f2f2;
+    padding: 10px;
+    text-align: center;
+}
+
+td {
+    padding: 10px;
+    text-align: center;
+}
+
+td[data-date] {
+    cursor: pointer;
+}
+
+td[data-date]:hover {
+    background-color: #f2f2f2;
+}
 footer {
     position: fixed;
     bottom: 0;

@@ -15,6 +15,8 @@
 <body>
     <header>
         <h1>Calendario713</h1>
+        <nav>
+        </nav>
     </header>
     <main class="container">
         <?php
