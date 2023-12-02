@@ -41,16 +41,19 @@ fetch('../php/jsonGenerateCalendar.php')
         console.log(e.message);
     });
     function addTodayClassToCells() {
-    const cells = document.querySelectorAll('td[data-date]')
-    const today = new Date()
-    today.setHours(0, 0, 0, 0)
+    const cells = document.querySelectorAll('td[data-date]');
+    const today = new Date();
+    console.log('Today:', today);
 
     cells.forEach(cell => {
-        const cellDate = new Date(cell.getAttribute('data-date') + 'T00:00:00')
-        if (cellDate.getTime() === today.getTime()) {
-            cell.classList.add('today')
+        const cellDateAttribute = cell.getAttribute('data-date');
+        console.log('Cell Date Attribute:', cellDateAttribute);
+
+
+        const cellDate = new Date(cellDateAttribute);
+        if (today.toDateString() === cellDate.toDateString()) {
+            cell.classList.add('today');
         }
     });
 }
-
-addTodayClassToCells()
+document.addEventListener('DOMContentLoaded', addTodayClassToCells);
