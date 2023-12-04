@@ -19,69 +19,77 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Inicio de sesión</title>
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="node_modules/@fortawesome/fontawesome-free/css/all.css">
+    <link rel="stylesheet" href="css/styles.css">
     <style>
-    body {
-        font-family: Arial, sans-serif;
-        background-color: #f2f2f2;
-    }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+        }
 
-    h1 {
-        color: #333;
-        text-align: center;
-    }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
 
-    form {
-        width: 300px;
-        margin: 0 auto;
-        padding: 20px;
-        background-color: #fff;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-    }
+        form {
+            width: 300px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
 
-    label {
-        display: block;
-        margin-bottom: 10px;
-        font-weight: bold;
-    }
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
 
-    input[type="text"],
-    input[type="password"] {
-        width: 100%;
-        padding: 10px;
-        border: 1px solid #ccc;
-        border-radius: 3px;
-    }
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid <?php echo isset($error) ? 'red' : '#ccc'; ?>;
+            border-radius: 3px;
+        }
 
-    input[type="submit"] {
-        width: 100%;
-        padding: 10px;
-        background-color: #333;
-        color: #fff;
-        border: none;
-        border-radius: 3px;
-        cursor: pointer;
-    }
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #333;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            color: #fff;
+        }
 
-    .error {
-        border: 1px solid red;
-    }
-</style>
+        .error {
+            border: 1px solid red;
+        }
+    </style>
 </head>
+
 <body>
-    <h1>Inicio de sesión</h1>
-    <form method="POST" action="<?php echo $_SERVER["PHP_SELF"]; ?>">
-        <label for="username">Usuario:</label>
-        <input type="text" name="username" <?php if (isset($error)) echo 'class="error"'; ?> required><br>
-
-        <label for="password">Contraseña:</label>
-        <input type="password" name="password" <?php if (isset($error)) echo 'class="error"'; ?> required><br>
-
-        <input type="submit" value="Iniciar sesión">
-    </form>
+    <div class="container">
+        <h1>Inicio de sesión</h1>
+        <form method="POST" action="<?php echo $_SERVER["PHP_SELF"]; ?>">
+            <label for="username">Usuario:</label>
+            <input type="text" name="username" class="form-control <?php echo isset($error) ? 'error' : ''; ?>" required><br>
+            <label for="password">Contraseña:</label>
+            <input type="password" name="password" class="form-control <?php echo isset($error) ? 'error' : ''; ?>" required><br>
+            <p>Si no tienes un usuario, puedes <a href="register.php">registrarte aquí</a>.</p>
+            <input type="submit" value="Iniciar sesión" class="btn btn-primary">
+        </form>
+    </div>
+    <footer>
+        <p>&copy; <?php echo date("Y"); ?> Calendario713</p>
+    </footer>
 </body>
-</html>
 
+</html>
