@@ -82,10 +82,30 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <label for="username">Usuario:</label>
             <input type="text" name="username" class="form-control <?php echo isset($error) ? 'error' : ''; ?>" required><br>
             <label for="password">Contraseña:</label>
-            <input type="password" name="password" class="form-control <?php echo isset($error) ? 'error' : ''; ?>" required><br>
+            <div class="password-wrapper">
+                <input type="password" name="password" class="form-control <?php echo isset($error) ? 'error' : ''; ?>" required>
+                <span class="password-toggle" onclick="togglePasswordVisibility(this)"><i class="fas fa-eye"></i></span>
+            </div>
             <p>Si no tienes un usuario, puedes <a href="register.php">registrarte aquí</a>.</p>
             <input type="submit" value="Iniciar sesión" class="btn btn-primary">
         </form>
+
+        <script>
+            function togglePasswordVisibility(element) {
+                var passwordInput = element.previousElementSibling;
+                var passwordToggle = element.querySelector('i');
+
+                if (passwordInput.type === 'password') {
+                    passwordInput.type = 'text';
+                    passwordToggle.classList.remove('fa-eye');
+                    passwordToggle.classList.add('fa-eye-slash');
+                } else {
+                    passwordInput.type = 'password';
+                    passwordToggle.classList.remove('fa-eye-slash');
+                    passwordToggle.classList.add('fa-eye');
+                }
+            }
+        </script>
     </div>
     <footer>
         <p>&copy; <?php echo date("Y"); ?> Calendario713</p>

@@ -77,12 +77,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
             <div>
                 Contraseña: <input type="password" name="contrasena" id="contrasena" required>
+                <button type="button" id="togglePassword">Mostrar</button>
             </div>
             <div>
                 Mail: <input type="email" name="mail" required><br>
             </div>
             <input type="submit" value="Registrarme" class="btn">
         </form>
+
+        <script>
+            const togglePassword = document.getElementById('togglePassword');
+            const passwordInput = document.getElementById('contrasena');
+
+            togglePassword.addEventListener('click', function () {
+                const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+                passwordInput.setAttribute('type', type);
+                togglePassword.textContent = type === 'password' ? 'Mostrar' : 'Ocultar';
+            });
+        </script>
     </main>
 
     <!-- Error Modal -->

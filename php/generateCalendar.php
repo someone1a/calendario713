@@ -1,4 +1,5 @@
-<?php function generateCalendar($month, $year)
+<?php
+function generateCalendar($month, $year)
 {
     $month = max(1, min(12, $month));
     $year = max(1, $year);
@@ -10,7 +11,7 @@
     echo "<div class='calendar-navigation'>";
     echo "<a href='?month=" . ($month - 1) . "&year=$year'><i class='fa-solid fa-arrow-left'></i></a>";
     echo "<span class='txcenter'>$monthName $year</span>";
-    if($month < 12){
+    if ($month < 12) {
         echo "<a href='?month=" . ($month + 1) . "&year=$year'><i class='fa-solid fa-arrow-right'></i></a>";
     }
     if ($month == 12) {
@@ -30,7 +31,7 @@
     }
     while ($currentDay <= $daysInMonth) {
         for ($i = $firstDay; $i <= 7; $i++) {
-            echo "<td data-date='$year-$month-$currentDay' class=''>";
+            echo "<td data-date='$year-$month-$currentDay' class='calendar-cell'>";
             if ($currentDay <= $daysInMonth) {
                 echo $currentDay;
                 $currentDay++;
@@ -51,3 +52,33 @@ $year = isset($_GET['year']) ? $_GET['year'] : date('Y');
 $month = isset($_GET['month']) ? $_GET['month'] : date('n');
 generateCalendar($month, $year);
 ?>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const calendarCells = document.querySelectorAll('.calendar-cell');
+        calendarCells.forEach(function (cell) {
+            cell.addEventListener('click', function () {
+                const date = this.getAttribute('data-date');
+                const event = getEvent(date);
+                if (event) {
+                    showModal(event);
+                } else {
+                    showNoEventModal();
+                }
+            });
+        });
+
+        function getEvent(date) {
+            // Implement your logic to retrieve the event for the given date
+            // Return the event if found, otherwise return null
+        }
+
+        function showModal(event) {
+            // Implement your logic to show the modal with the event details
+        }
+
+        function showNoEventModal() {
+            // Implement your logic to show the modal indicating no event
+        }
+    });
+</script>
