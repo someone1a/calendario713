@@ -70,30 +70,3 @@ footer {
 .txright {
     text-align: right;
 }
-
-/* Styles for active and focused links */
-a:active,
-a:focus {
-    background-color: #f00;
-    color: #fff;
-}
-
-/* Styles for links on hover */
-a:hover {
-    background-color: #00f;
-    color: #fff;
-}
-a:active,
-        a:focus {
-            /* Estilos para los enlaces activos o enfocados */
-            /* Por ejemplo, puedes cambiar el color de fondo y el color del texto */
-            background-color: #f00;
-            color: #fff;
-        }
-
-        a:hover {
-            /* Estilos para los enlaces cuando el cursor está sobre ellos */
-            /* Por ejemplo, puedes cambiar el color de fondo y el color del texto */
-            background-color: #00f;
-            color: #fff;
-        }
