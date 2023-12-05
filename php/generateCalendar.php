@@ -53,32 +53,3 @@ $month = isset($_GET['month']) ? $_GET['month'] : date('n');
 generateCalendar($month, $year);
 ?>
 
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const calendarCells = document.querySelectorAll('.calendar-cell');
-        calendarCells.forEach(function (cell) {
-            cell.addEventListener('click', function () {
-                const date = this.getAttribute('data-date');
-                const event = getEvent(date);
-                if (event) {
-                    showModal(event);
-                } else {
-                    showNoEventModal();
-                }
-            });
-        });
-
-        function getEvent(date) {
-            // Implement your logic to retrieve the event for the given date
-            // Return the event if found, otherwise return null
-        }
-
-        function showModal(event) {
-            // Implement your logic to show the modal with the event details
-        }
-
-        function showNoEventModal() {
-            // Implement your logic to show the modal indicating no event
-        }
-    });
-</script>
