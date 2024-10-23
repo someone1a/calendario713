@@ -70,3 +70,14 @@ footer {
 .txright {
     text-align: right;
 }
+
+@media (max-width: 768px) {
+    .calendar-navigation {
+        flex-direction: column;
+    }
+
+    th,
+    td {
+        padding: 5px;
+    }
+}

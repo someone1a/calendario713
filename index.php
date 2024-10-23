@@ -14,11 +14,11 @@
 </head>
 
 <body>
-    <header>
-        <h1>Calendario713</h1>
-        <nav class="txright">
-            <a href="login.php">Iniciar Sesion</a>
-            <a href="register.php">Registrarme </a>
+    <header class="container">
+        <h1 class="text-center">Calendario713</h1>
+        <nav class="d-flex justify-content-end">
+            <a href="login.php" class="btn btn-primary me-2">Iniciar Sesion</a>
+            <a href="register.php" class="btn btn-secondary">Registrarme</a>
         </nav>
     </header>
     <main class="container">
@@ -26,10 +26,8 @@
         require("php/generateCalendar.php");
         ?>
     </main>
-    <footer>
-        <footer>
-            <p>&copy; <?php echo date("Y"); ?> Calendario713</p>
-        </footer>
+    <footer class="container text-center mt-4">
+        <p>&copy; <?php echo date("Y"); ?> Calendario713</p>
     </footer>
     <script>
         function isToday(date) {

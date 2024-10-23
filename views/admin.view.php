@@ -18,7 +18,7 @@ function checkUsers($conn)
 
     if ($result->num_rows > 0) {
         echo "<h2>Usuarios sin rol asignado:</h2>";
-        echo "<table>
+        echo "<table class='table table-striped'>
             <tr>
                 <th>UserID</th>
                 <th>userName</th>
@@ -106,17 +106,27 @@ function addCourse($conn)
             <div class="tabcontent" id="editUser">
     <h2>Editar Usuario</h2>
     <form method="POST" action="">
-        <label for="userID">ID de Usuario:</label>
-        <a href="" target="_blank">Seleccionar Usuario</a>
-        <label for="userName">Nombre de Usuario:</label>
-        <input type="text" name="userName" id="userName" required>
-        <label for="nombre">Nombre:</label>
-        <input type="text" name="nombre" id="nombre" required>
-        <label for="apellido">Apellido:</label>
-        <input type="text" name="apellido" id="apellido" required>
-        <label for="mail">Correo Electrónico:</label>
-        <input type="email" name="mail" id="mail" required>
-        <input type="submit" value="Guardar Cambios">
+        <div class="mb-3">
+            <label for="userID" class="form-label">ID de Usuario:</label>
+            <a href="" target="_blank">Seleccionar Usuario</a>
+        </div>
+        <div class="mb-3">
+            <label for="userName" class="form-label">Nombre de Usuario:</label>
+            <input type="text" name="userName" id="userName" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label for="nombre" class="form-label">Nombre:</label>
+            <input type="text" name="nombre" id="nombre" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label for="apellido" class="form-label">Apellido:</label>
+            <input type="text" name="apellido" id="apellido" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label for="mail" class="form-label">Correo Electrónico:</label>
+            <input type="email" name="mail" id="mail" class="form-control" required>
+        </div>
+        <input type="submit" value="Guardar Cambios" class="btn btn-primary">
     </form>
     <?php
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -146,11 +156,15 @@ function addCourse($conn)
             <div class="tabcontent" id="addCourse">
                 <h2>Agregar Curso</h2>
                 <form method="POST" action="">
-                    <label for="cursoNombre">Nombre del Curso:</label>
-                    <input type="text" name="cursoNombre" id="cursoNombre" required>
-                    <label for="cursoDescripcion">Descripción del Curso:</label>
-                    <textarea name="cursoDescripcion" id="cursoDescripcion" required></textarea>
-                    <input type="submit" value="Agregar Curso">
+                    <div class="mb-3">
+                        <label for="cursoNombre" class="form-label">Nombre del Curso:</label>
+                        <input type="text" name="cursoNombre" id="cursoNombre" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="cursoDescripcion" class="form-label">Descripción del Curso:</label>
+                        <textarea name="cursoDescripcion" id="cursoDescripcion" class="form-control" required></textarea>
+                    </div>
+                    <input type="submit" value="Agregar Curso" class="btn btn-primary">
                 </form>
                 <?php addCourse($conn) ?>
             </div>
