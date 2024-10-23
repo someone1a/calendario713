@@ -45,11 +45,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 </head>
 
 <body>
-    <header>
-        <h1 class="txcenter">Calendario 713</h1>
+    <header class="container">
+        <h1 class="text-center">Calendario 713</h1>
     </header>
-    <main>
-        <div class="container">
+    <main class="container">
         <div class="user-info">
             <?php
             if (!empty($usuario)) {
@@ -61,59 +60,67 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             }
             ?>
         </div>
-            <div class="tab">
-                <button class="tablinks" onclick="openWindow(event, 'mineCalendar')" id="defaultOpen">Mi Calendario <i class="fa-solid fa-calendar text-primary"></i></button>
-                <button class="tablinks" onclick="openWindow(event, 'cursos')">Mis Cursos <i class="fa-solid fa-earth-americas text-success"></i></button>
-                <button class="tablinks" onclick="openWindow(event, 'addDate')">Añadir Fecha <i class="fa-solid fa-pencil text-danger"></i></button>
+        <div class="tab">
+            <button class="tablinks" onclick="openWindow(event, 'mineCalendar')" id="defaultOpen">Mi Calendario <i class="fa-solid fa-calendar text-primary"></i></button>
+            <button class="tablinks" onclick="openWindow(event, 'cursos')">Mis Cursos <i class="fa-solid fa-earth-americas text-success"></i></button>
+            <button class="tablinks" onclick="openWindow(event, 'addDate')">Añadir Fecha <i class="fa-solid fa-pencil text-danger"></i></button>
+        </div>
+        <div class="tabcontent" id="mineCalendar">
+            <div class="mes">
+                <h2 class="text-center">Octubre</h2>
+                <?php generateCalendar($month, $year);?>
             </div>
-            <div class="tabcontent" id="mineCalendar">
-                <div class="mes">
-                    <h2 class="txcenter">Octubre</h2>
-                    <?php generateCalendar($month, $year);?>
-                </div>
-            </div>
+        </div>
 
-            <div class="tabcontent" id="addDate">
-                <h2>Agregar Evento</h2>
-                <form method="POST">
-                    <label for="fecha">Fecha:</label>
-                    <input type="date" name="fecha" required>
-                    <br>
-                    <label for="hora_inicio">Hora de Inicio:</label>
-                    <input type="time" name="hora_inicio" required>
-                    <br>
-                    <label for="hora_fin">Hora de Fin:</label>
-                    <input type="time" name="hora_fin" required>
-                    <br>
-                    <label for="curso_id">Curso ID:</label>
-                    <input type="text" name="curso_id">
-                    <br>
-                    <label for="titulo">Título del Evento:</label>
-                    <input type="text" name="titulo" required>
-                    <br>
-                    <label for="descripcion">Descripción del Evento:</label>
-                    <textarea name="descripcion" required></textarea>
-                    <br>
-                    <label for="tipo">Tipo de Evento:</label>
-                    <select name="tipo" required>
+        <div class="tabcontent" id="addDate">
+            <h2>Agregar Evento</h2>
+            <form method="POST">
+                <div class="mb-3">
+                    <label for="fecha" class="form-label">Fecha:</label>
+                    <input type="date" name="fecha" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label for="hora_inicio" class="form-label">Hora de Inicio:</label>
+                    <input type="time" name="hora_inicio" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label for="hora_fin" class="form-label">Hora de Fin:</label>
+                    <input type="time" name="hora_fin" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label for="curso_id" class="form-label">Curso ID:</label>
+                    <input type="text" name="curso_id" class="form-control">
+                </div>
+                <div class="mb-3">
+                    <label for="titulo" class="form-label">Título del Evento:</label>
+                    <input type="text" name="titulo" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label for="descripcion" class="form-label">Descripción del Evento:</label>
+                    <textarea name="descripcion" class="form-control" required></textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="tipo" class="form-label">Tipo de Evento:</label>
+                    <select name="tipo" class="form-select" required>
                         <option value="acto">Acto</option>
                         <option value="feriado">Feriado</option>
                         <option value="evento_especial">Evento Especial</option>
                         <option value="entrega_trabajo">Entrega de Trabajo</option>
                         <option value="evaluacion">Evaluación</option>
                     </select>
-                    <br>
-                    <input type="submit" value="Agregar Evento">
-                </form>
-            </div>
+                </div>
+                <input type="submit" value="Agregar Evento" class="btn btn-primary">
+            </form>
         </div>
-        <?php
-        if (!empty($mensaje)) {
-            echo '<p>' . $mensaje . '</p>';
-        }
-        ?>
     </main>
-    <footer></footer>
+    <?php
+    if (!empty($mensaje)) {
+        echo '<p>' . $mensaje . '</p>';
+    }
+    ?>
+    <footer class="container text-center mt-4">
+        <p>&copy; <?php echo date("Y"); ?> Calendario713</p>
+    </footer>
     <script src="../js/tabs.js"></script>
     <script src="../js/fetchEvents.js"></script>
 </body>

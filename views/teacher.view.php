@@ -43,8 +43,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 </head>
 
 <body>
-    <h1>Calendario del Profesor</h1>
-    <div class="container">
+    <header class="container">
+        <h1 class="text-center">Calendario del Profesor</h1>
+    </header>
+    <main class="container">
         <div class="tab">
             <button class="tablinks" onclick="openWindow(event, 'mineCalendar')" id="defaultOpen">Mi Calendario</button>
             <button class="tablinks" onclick="openWindow(event, 'cursos')">Mis Cursos</button>
@@ -58,7 +60,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     $daysOfWeek = array('Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb', 'Dom');
                     $daysInMonth = cal_days_in_month(CAL_GREGORIAN, $month, $year);
                     $firstDay = date('N', strtotime("$year-$month-01"));
-                    echo "<table>";
+                    echo "<table class='table table-responsive'>";
                     echo "<tr>";
                     // Generar encabezados de días de la semana
                     foreach ($daysOfWeek as $day) {
@@ -106,40 +108,48 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 ?>
             </div>
         </div>
-        <div class "tabcontent" id="cursos">
+        <div class="tabcontent" id="cursos">
             <h1>asdas</h1>
         </div>
         <div class="tabcontent" id="addDate">
             <h2>Agregar Evento</h2>
             <form method="POST">
-                <label for="fecha">Fecha:</label>
-                <input type="date" name="fecha" required>
-                <br>
-                <label for="hora_inicio">Hora de Inicio:</label>
-                <input type="time" name="hora_inicio" required>
-                <br>
-                <label for="hora_fin">Hora de Fin:</label>
-                <input type="time" name="hora_fin" required>
-                <br>
-                <label for="curso_id">Curso ID:</label>
-                <input type="text" name="curso_id" required>
-                <br>
-                <label for="titulo">Título del Evento:</label>
-                <input type="text" name="titulo" required>
-                <br>
-                <label for="descripcion">Descripción del Evento:</label>
-                <textarea name="descripcion" required></textarea>
-                <br>
-                <input type="submit" value="Agregar Evento">
+                <div class="mb-3">
+                    <label for="fecha" class="form-label">Fecha:</label>
+                    <input type="date" name="fecha" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label for="hora_inicio" class="form-label">Hora de Inicio:</label>
+                    <input type="time" name="hora_inicio" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label for="hora_fin" class="form-label">Hora de Fin:</label>
+                    <input type="time" name="hora_fin" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label for="curso_id" class="form-label">Curso ID:</label>
+                    <input type="text" name="curso_id" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label for="titulo" class="form-label">Título del Evento:</label>
+                    <input type="text" name="titulo" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label for="descripcion" class="form-label">Descripción del Evento:</label>
+                    <textarea name="descripcion" class="form-control" required></textarea>
+                </div>
+                <input type="submit" value="Agregar Evento" class="btn btn-primary">
             </form>
         </div>
-    </div>
+    </main>
     <?php
     if (!empty($mensaje)) {
         echo '<p>' . $mensaje . '</p>';
     }
     ?>
-    </div>
+    <footer class="container text-center mt-4">
+        <p>&copy; <?php echo date("Y"); ?> Calendario713</p>
+    </footer>
     <script src="../js/tabs.js"></script>
     <script src="../js/addColours.js"></script>
 </body>

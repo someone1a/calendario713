@@ -88,3 +88,14 @@ th {
     text-align: center;
     font-weight: bold;
 }
+
+@media (max-width: 768px) {
+    .calendario {
+        flex-direction: column;
+    }
+
+    th,
+    td {
+        padding: 5px;
+    }
+}

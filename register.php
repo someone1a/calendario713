@@ -61,28 +61,38 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 
 <body>
-    <header>
-        <h1 class="txcenter">Calendario 713 - Registro</h1>
+    <header class="container">
+        <h1 class="text-center">Calendario 713 - Registro</h1>
     </header>
-    <main>
+    <main class="container">
         <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
             <h2>Registro</h2>
-            <div>
-                Nombre de Usuario:
-                <input type="text" name="userName" id="userName" required>
+            <div class="mb-3">
+                <label for="userName" class="form-label">Nombre de Usuario:</label>
+                <input type="text" name="userName" id="userName" class="form-control" required>
             </div>
-            <div class="row">
-                <span class="col"> Nombre:<input type="text" name="name" id="name" required></span>
-                <span class="col"> Apellido:<input type="text" name="lastname" id="lastname" required></span>
+            <div class="row mb-3">
+                <div class="col">
+                    <label for="name" class="form-label">Nombre:</label>
+                    <input type="text" name="name" id="name" class="form-control" required>
+                </div>
+                <div class="col">
+                    <label for="lastname" class="form-label">Apellido:</label>
+                    <input type="text" name="lastname" id="lastname" class="form-control" required>
+                </div>
             </div>
-            <div>
-                Contraseña: <input type="password" name="contrasena" id="contrasena" required>
-                <button type="button" id="togglePassword">Mostrar</button>
+            <div class="mb-3">
+                <label for="contrasena" class="form-label">Contraseña:</label>
+                <div class="input-group">
+                    <input type="password" name="contrasena" id="contrasena" class="form-control" required>
+                    <button type="button" id="togglePassword" class="btn btn-outline-secondary">Mostrar</button>
+                </div>
             </div>
-            <div>
-                Mail: <input type="email" name="mail" required><br>
+            <div class="mb-3">
+                <label for="mail" class="form-label">Mail:</label>
+                <input type="email" name="mail" id="mail" class="form-control" required>
             </div>
-            <input type="submit" value="Registrarme" class="btn">
+            <input type="submit" value="Registrarme" class="btn btn-primary">
         </form>
 
         <script>
@@ -155,8 +165,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </script>
     <?php endif; ?>
 
-    <footer>
-        <p class="txcenter">Creado Por Walter Carrasco 2023&copy; - 5to ETP</p>
+    <footer class="container text-center mt-4">
+        <p>Creado Por Walter Carrasco 2023&copy; - 5to ETP</p>
     </footer>
     <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
 </body>
