@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Web App Installer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='node_modules/bootstrap/dist/css/bootstrap.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='node_modules/@fortawesome/fontawesome-free/css/all.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Web App Installer</h1>
+        <form method="post" action="{{ url_for('install') }}">
+            <div class="mb-3">
+                <label for="servername" class="form-label">Server Name:</label>
+                <input type="text" id="servername" name="servername" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label for="username" class="form-label">Username:</label>
+                <input type="text" id="username" name="username" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Password:</label>
+                <input type="password" id="password" name="password" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label for="dbname" class="form-label">Database Name:</label>
+                <input type="text" id="dbname" name="dbname" class="form-control" required>
+            </div>
+            <input type="submit" value="Install" class="btn btn-primary">
+        </form>
+    </div>
+</body>
+</html>
