@@ -1,8 +1,6 @@
 <?php
-$servername = "localhost";
-$username = "cale_713";
-$password = "@tNKq9l8q0!AujF%";
-$dbname = "cale_calendario713";
+// This file is generated during installation
+
 $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
     die("La conexión falló: " . $conn->connect_error);
