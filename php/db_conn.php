@@ -58,3 +58,15 @@ function generateCalendar($month, $year)
 
 $year = isset($_GET['year']) ? $_GET['year'] : date('Y');
 $month = isset($_GET['month']) ? $_GET['month'] : date('n');
+
+function isAppInstalled() {
+    global $conn;
+    $tables = ['cursos', 'eventos', 'inscripciones', 'usuarios'];
+    foreach ($tables as $table) {
+        $result = $conn->query("SHOW TABLES LIKE '$table'");
+        if ($result->num_rows == 0) {
+            return false;
+        }
+    }
+    return true;
+}
