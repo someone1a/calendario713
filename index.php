@@ -1,3 +1,24 @@
+<?php
+require_once 'php/db_conn.php';
+
+function isAppInstalled() {
+    global $conn;
+    $tables = ['cursos', 'eventos', 'inscripciones', 'usuarios'];
+    foreach ($tables as $table) {
+        $result = $conn->query("SHOW TABLES LIKE '$table'");
+        if ($result->num_rows == 0) {
+            return false;
+        }
+    }
+    return true;
+}
+
+if (!isAppInstalled()) {
+    header('Location: installer.php');
+    exit();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 
